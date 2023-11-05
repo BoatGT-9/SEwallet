@@ -15,7 +15,7 @@ export default function ButtonAppBar({
   
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static"  sx={{backgroundColor:"#cb997e"}}>
         <Toolbar>
           <IconButton
             size="large"
