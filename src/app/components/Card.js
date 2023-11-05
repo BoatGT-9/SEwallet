@@ -59,7 +59,7 @@ const BoatBuy = async()=>{
         
         <TextField id="standard-basic" label="Address" variant="standard" value={accounts} />
         <TextField id="standard-basic" label="Newbalance" variant="standard" value={balance} />
-        <h2> Boat Buy</h2>
+        <h2>Boat Buy</h2>
         <TextField id="standard-basic" label="Buy" variant="standard" value={boatValue} onChange={handleBuy} />
         <Stack direction="row" spacing={2} >
         <Button variant="contained" onClick={BoatBuy}>ConFirm</Button>
