@@ -8,16 +8,28 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import Tooltip from '@mui/material/Tooltip';
+import FileCopyIcon from '@mui/icons-material/FileCopy'; // ไอคอนที่จะแสดงบนปุ่ม
+// import IconButton from '@mui/material/IconButton';
+
+
+
+
 
 export default function ButtonAppBar({
-  IsActive, onClick ,onDisconnect, accounts
+  IsActive, onClick ,onDisconnect, accounts, 
 }) {
+
+  const handleCopy = () => {
+    // console.log('textToCopy:', {accounts});
+    navigator.clipboard.writeText(accounts);
+};
   
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static"  sx={{backgroundColor:"#cb997e"}}>
+      <AppBar position="static"  sx={{backgroundColor:"#4caf50"}}>
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             size="large"
             edge="start"
             color="inherit"
@@ -25,13 +37,15 @@ export default function ButtonAppBar({
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Boat Block
+            Block
           </Typography>
           { IsActive ?
             <Stack direction="row" spacing={1}>
-            <Chip label={accounts[0]} variant="outlined" />
+
+            <Chip  sx={{color:"#fff"}} onClick={handleCopy} endIcon={<FileCopyIcon/>}   title="คัดลอกไปยังคลิปบอร์ด" arrow label={accounts[0]} variant="outlined">
+              </Chip>
             <Button  color="inherit" onClick={onDisconnect} value={'Disconnect'}>Disconnect</Button> </Stack>
             :
           <Button color="inherit" onClick={onClick} value={'Connect'}>Connect</Button>
